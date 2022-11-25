@@ -1,5 +1,6 @@
 
 function Iniciar_Sesion() {
+    recuerdame();
     let usu  = document.getElementById('txt_usuario').value;
     let cont  = document.getElementById('txt_clave').value;
 
@@ -82,4 +83,20 @@ function Iniciar_Sesion() {
         }
         
     })
+}
+
+
+/*localstorage*/
+
+function recuerdame() {
+    if(rmcheck.checked && usuarioInput.value!="" && passInput.value!="")
+    {
+        localStorage.usuario = usuarioInput.value;
+        localStorage.pass = passInput.value;
+        localStorage.checkbox = rmcheck.value;
+    } else {
+         localStorage.usuario = "";
+        localStorage.pass = "";
+        localStorage.checkbox = "";
+    }
 }
