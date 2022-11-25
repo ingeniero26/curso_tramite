@@ -12,7 +12,7 @@ if(isset($_SESSION['S_IDUSUARIO'])){
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -59,7 +59,7 @@ if(isset($_SESSION['S_IDUSUARIO'])){
             <div class="icheck-primary">
               <input type="checkbox" id="remember">
               <label for="remember">
-                Remember Me
+                Recuerdame
               </label>
             </div>
           </div>
@@ -92,7 +92,22 @@ if(isset($_SESSION['S_IDUSUARIO'])){
 <script src="plantilla/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="plantilla/dist/js/adminlte.min.js"></script>
-<script src="js/usuario.js"></script>
+<script src="js/usuario.js?rev=<?php echo time(); ?>"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+  const rmcheck = document.getElementById('remember'),
+        usuarioInput = document.getElementById('txt_usuario'),
+        passInput = document.getElementById('txt_clave');
+
+        if ( localStorage.checkbox && localStorage.checkbox != "") {
+          rmcheck.setAttribute("checked", "checked");
+          usuarioInput.value = localStorage.usuario;
+          passInput.value   = localStorage.pass;
+        } else {
+          rmcheck.removeAttribute("checked");
+          usuarioInput.value = "";
+          passInput.value   = "";
+        }
+</script>
 </body>
 </html>
