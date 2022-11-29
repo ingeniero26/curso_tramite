@@ -19,6 +19,21 @@
             return $arreglo;
             conexionBD::cerrar_conexion();
         }
+        /* function para listar usuario */
+         public function Listar_Usuario(){
+            $c = conexionBD::conexionPDO();
+            $sql = "CALL SP_LISTAR_USUARIO()";
+            $arreglo = array();
+            $query  = $c->prepare($sql);
+            $query->execute();
+            $resultado = $query->fetchAll(PDO::FETCH_ASSOC);
+            foreach($resultado as $resp){
+                $arreglo["data"][]=$resp;
+            }
+            return $arreglo;
+            conexionBD::cerrar_conexion();
+        }
+
     }
 
 
