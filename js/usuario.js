@@ -100,3 +100,49 @@ function recuerdame() {
         localStorage.checkbox = "";
     }
 }
+
+
+var  tbl_usuario;
+function listar_usuario(){
+    tbl_usuario = $("#tbl_usuario").DataTable({
+        "ordering":false,   
+        "bLengthChange":true,
+        "searching": { "regex": false },
+        "lengthMenu": [ [10, 25, 50, 100, -1], [10, 25, 50, 100, "All"] ],
+        "pageLength": 10,
+        "destroy":true,
+        "async": false ,
+        "processing": true,
+        "ajax":{
+            "url":"../controller/usuario/controlador_listar_usuario.php",
+            type:'POST'
+        },
+        "columns":[
+            {"defaultContent":""},
+            {"data":"usu_usuario"},
+            {"data":"area_nombre"},
+            {"data":"usu_rol"},
+            {"data":"empleado"},
+            {"data":"usu_estatus",
+                render: function(data,type,row){
+                        if(data=='ACTIVO'){
+                        return '<span class="badge bg-success">ACTIVO</span>';
+                        }else{
+                        return '<span class="badge bg-danger">INACTIVO</span>';
+                        }
+                }   
+            },
+            {"defaultContent":"<button class='btn btn-primary'><i class='fa fa-edit'></i></button>"},
+            
+        ],
+  
+        "language":idioma_espanol,
+        select: true
+    });
+    tbl_usuario.on('draw.td',function(){
+      var PageInfo = $("#tbl_usuario").DataTable().page.info();
+      tbl_usuario.column(0, {page: 'current'}).nodes().each(function(cell, i){
+        cell.innerHTML = i + 1 + PageInfo.start;
+      });
+    });
+}
