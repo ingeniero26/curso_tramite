@@ -108,6 +108,7 @@ if(isset($_SESSION['S_IDUSUARIO'])){
           usuarioInput.value = "";
           passInput.value   = "";
         }
+        
 </script>
 </body>
 </html>
