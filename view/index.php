@@ -27,6 +27,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="../plantilla/plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../plantilla/dist/css/adminlte.min.css">
+  <link rel="stylesheet" type="text/css" href="../util/DataTables/datatables.min.css"/>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -192,7 +193,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
          
           <li class="nav-item">
             <a onclick="cargar_contenido('contenido_principal','usuario/view_usuario.php')" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
+              <i class="nav-icon fas fa-user"></i>
               <p>
                 Usuario
               </p>
@@ -281,6 +282,34 @@ scratch. This page gets rid of all links and provides the needed markup only.
   function cargar_contenido(id,vista) {
     $("#"+id).load(vista);
   }
+   var idioma_espanol = {
+      select: {
+      rows: "%d fila seleccionada"
+      },
+      "sProcessing":     "Procesando...",
+      "sLengthMenu":     "Mostrar _MENU_ registros",
+      "sZeroRecords":    "No se encontraron resultados",
+      "sEmptyTable":     "Ning&uacute;n dato disponible en esta tabla",
+      "sInfo":           "Registros del (_START_ al _END_) total de _TOTAL_ registros",
+      "sInfoEmpty":      "Registros del (0 al 0) total de 0 registros",
+      "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+      "sInfoPostFix":    "",
+      "sSearch":         "Buscar:",
+      "sUrl":            "",
+      "sInfoThousands":  ",",
+      "sLoadingRecords": "<b>No se encontraron datos</b>",
+      "oPaginate": {
+          "sFirst":    "Primero",
+          "sLast":     "Último",
+          "sNext":     "Siguiente",
+          "sPrevious": "Anterior"
+      },
+      "oAria": {
+          "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+          "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+      }
+   }
+
 </script>
 <!-- jQuery -->
 <script src="../plantilla/plugins/jquery/jquery.min.js"></script>
@@ -289,6 +318,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- AdminLTE App -->
 <script src="../plantilla/dist/js/adminlte.min.js"></script>
 
-
+<script type="text/javascript" src="../util/DataTables/datatables.min.js"></script>
 </body>
 </html>

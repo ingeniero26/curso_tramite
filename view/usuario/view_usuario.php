@@ -1,3 +1,5 @@
+ <script src="../js/usuario.js?rev=<?php echo time(); ?>"></script>
+
  <!-- Content Header (Page header) -->
  <div class="content-header">
       <div class="container-fluid">
@@ -28,10 +30,25 @@
                 <h5 class="m-0">Listado de Usuarios</h5>
               </div>
               <div class="card-body">
-                <h6 class="card-title">Special title treatment</h6>
-
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+               <table id="tbl_usuario" class="display" style="width:100%">
+                  <thead>
+                      <tr>
+                          <th>#</th>
+                          <th>Usuario</th>
+                          <th>Area</th>
+                          <th>Rol</th>
+                          <th>Empleado</th>
+                          <th>Estado</th>
+                          <th>Acciones</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                    
+                     
+                  </tbody>
+                  <tfoot>
+                   
+              </table>
               </div>
             </div>
             </div>
@@ -42,3 +59,11 @@
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content -->
+
+
+    <script>
+
+    $(document).ready(function () {
+        listar_usuario();
+    });
+    </script>
