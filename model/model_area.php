@@ -16,6 +16,26 @@
             return $arreglo;
             conexionBD::cerrar_conexion();
         }
+        function Registrar_Area($area) {
+			$c = conexionBD::conexionPDO();
+
+			$sql ="CALL SP_REGISTRAR_AREA(?)";
+			$query = $c->prepare($sql);
+			$query->bindParam(1,$area);
+			
+			$resultado = $query->execute();
+			/*if($resultado ) {
+				return 1;
+			}	 else {
+				return 0;
+			}	*/
+
+			if($row = $query->fetchColumn()) {
+				return $row;
+			}	
+		
+			conexionBD::cerrar_conexion();
+		}
  }
 
 
