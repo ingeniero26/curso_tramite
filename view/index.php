@@ -28,6 +28,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Theme style -->
   <link rel="stylesheet" href="../plantilla/dist/css/adminlte.min.css">
   <link rel="stylesheet" type="text/css" href="../util/DataTables/datatables.min.css"/>
+  <link rel="stylesheet" href="../plantilla/plugins/select2/css/select2.min.css">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -158,7 +159,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
       <img src="../plantilla/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+      <span class="brand-text font-weight-light">AdminAPP</span>
     </a>
 
     <!-- Sidebar -->
@@ -169,7 +170,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <img src="../plantilla/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block"><span><?php echo $_SESSION['S_USUARIO']; ?> </span></a>
         </div>
       </div>
 
@@ -201,9 +202,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </li>
               <li class="nav-item">
             <a onclick="cargar_contenido('contenido_principal','area/view_area.php')" class="nav-link">
-              <i class="nav-icon fas fa-user"></i>
+              <i class="far fa-circle nav-icon"></i>
               <p>
                 Area
+              </p>
+            </a>
+          </li>
+            <li class="nav-item">
+            <a onclick="cargar_contenido('contenido_principal','tipo_documento/view_tipo_documento.php')" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>
+                Tipo Documento
               </p>
             </a>
           </li>
@@ -328,5 +337,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 <script type="text/javascript" src="../util/DataTables/datatables.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script type="text/javascript" src="../plantilla/plugins/select2/js/select2.min.js"></script>
 </body>
 </html>

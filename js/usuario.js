@@ -45,7 +45,7 @@ function Iniciar_Sesion() {
            }).done(function(r){
             let timerInterval
                Swal.fire({
-                   title: 'Bienvenido al sistema POS: ' + usu,
+                   title: 'Bienvenido al sistema Trámit: ' + usu,
                    html: 'Usted será redireccionado en <b></b> milliseconds.',
                    timer: 2000,
                    timerProgressBar: true,
